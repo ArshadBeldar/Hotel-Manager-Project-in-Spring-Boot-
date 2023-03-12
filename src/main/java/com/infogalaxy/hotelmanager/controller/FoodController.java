@@ -10,32 +10,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.infogalaxy.hotelmanager.entity.FoodEntity;
+import com.infogalaxy.hotelmanager.model.FoodModel;
+import com.infogalaxy.hotelmanager.service.FoodService;
 
 @RestController
 @RequestMapping("/hotelapi")
 public class FoodController {
 
-	
+	FoodService foodService = new FoodService();
 	List<FoodEntity> foodEntities = new ArrayList<FoodEntity>();	
+	FoodModel foodModel = new FoodModel();
 	
 	@GetMapping("/getall")
-	public List<FoodEntity> name() {
-		FoodEntity foodEntity= new FoodEntity(1,"Burgur",125,10);
-		FoodEntity foodEntity1= new FoodEntity(2,"Noodles",150,10);
-		
-		foodEntities.add(foodEntity);
-		foodEntities.add(foodEntity1);
-		
-		
-		return foodEntities;
+	public List<FoodEntity>getAll() {
+		return foodService.getAllFood();
 	}
 	
 	
 	@PostMapping("/addfood")
-	public void addFood(@RequestBody FoodEntity foodEntity3) {
+	public void addFood(@RequestBody FoodModel foodModel) {		
 		
-	foodEntities.add(foodEntity3);	
-	
+		foodService.addNewFood(foodModel);
+		
 	}
-	
+
 }
