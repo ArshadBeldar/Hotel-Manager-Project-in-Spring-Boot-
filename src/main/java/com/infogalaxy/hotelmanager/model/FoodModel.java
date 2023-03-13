@@ -2,7 +2,7 @@ package com.infogalaxy.hotelmanager.model;
 
 public class FoodModel {
 
-private int fid;
+	private int fid;
 	
 	private String fname;
 	
@@ -53,9 +53,5 @@ private int fid;
 		this.qty = qty;
 	}
 
-	@Override
-	public String toString() {
-		return "FoodEntity [fid=" + fid + ", fname=" + fname + ", price=" + price + ", qty=" + qty + "]";
-	}
 	
 }

@@ -30,7 +30,7 @@ public class FoodController {
 	@PostMapping("/addfood")
 	public void addFood(@RequestBody FoodModel foodModel) {		
 		
-		foodService.addNewFood(foodModel);
+		foodService.addFood(foodModel);
 		
 	}
 
