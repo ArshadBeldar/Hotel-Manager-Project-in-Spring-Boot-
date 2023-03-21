@@ -1,16 +1,25 @@
 package com.infogalaxy.hotelmanager.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "customerinfo")
 public class CustomerEntity {
 
+	@Id
 	private int cid;
+	
 	
 	private String cname;
 	
+
 	private String cmobileno;
 	
+
 	private String cemailid;
 
-	
 	
 	public CustomerEntity () {}
 	
