@@ -1,8 +1,15 @@
 package com.infogalaxy.hotelmanager.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="foodinfo")
 public class FoodEntity {
 
 	
+	@Id
 	private int fid;
 	
 	private String fname;

@@ -3,6 +3,7 @@ package com.infogalaxy.hotelmanager.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +18,9 @@ import com.infogalaxy.hotelmanager.service.FoodService;
 @RequestMapping("/hotelapi")
 public class FoodController {
 
-	FoodService foodService = new FoodService();
+	@Autowired
+	FoodService foodService ;
+	
 	List<FoodEntity> foodEntities = new ArrayList<FoodEntity>();	
 	FoodModel foodModel = new FoodModel();
 	
@@ -31,7 +34,6 @@ public class FoodController {
 	public void addFood(@RequestBody FoodModel foodModel) {		
 		
 		foodService.addFood(foodModel);
-		
 	}
 
 }

@@ -3,20 +3,25 @@ package com.infogalaxy.hotelmanager.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.infogalaxy.hotelmanager.entity.FoodEntity;
 import com.infogalaxy.hotelmanager.model.FoodModel;
+import com.infogalaxy.hotelmanager.repository.FoodRepo;
 
+@Service 
 public class FoodService {
-
+	
+	@Autowired 
+	FoodRepo foodRepo;
+	
 	List<FoodEntity> foodEntities = new ArrayList<FoodEntity>();
 	
 	public List<FoodEntity> getAllFood() {
-		FoodEntity foodEntity= new FoodEntity(1,"Burgur",125,10);
-		FoodEntity foodEntity1= new FoodEntity(2,"Noodles",150,10);
-		foodEntities.add(foodEntity);
-		foodEntities.add(foodEntity1);
 		
-		return foodEntities;
+		
+		return foodRepo.findAll();
 	}
 	
 	public void addFood(FoodModel foodModel1) {
@@ -27,7 +32,7 @@ public class FoodService {
 		foodEntity.setFname(foodModel1.getFname());
 		foodEntity.setPrice(foodModel1.getPrice());
 		foodEntity.setQty(foodModel1.getQty());
-		
+		foodRepo.save(foodEntity);
 		foodEntities.add(foodEntity);
 	}
 	
